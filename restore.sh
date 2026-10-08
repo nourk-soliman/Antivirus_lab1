@@ -47,6 +47,7 @@ echo "Choose what you want to do: "
 echo "1. Restore the file back into dir."
 echo "2. Permanently delete this file from malicious directory."
 echo "3. Go back"
+echo "4. Exit"
 
 read option
 
@@ -56,6 +57,8 @@ echo "Restored $selected_file to $dir"
 elif [ "$option" -eq 2 ]; then 
 rm "$selected_file"
 echo "$selected_file is permanently deleted."
+elif [ "$option" -eq 4 ]; then 
+exit 0
 fi
 fi
 done

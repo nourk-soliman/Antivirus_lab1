@@ -9,10 +9,12 @@ The user inputs the directory that needs to be scanned (source), the quarantined
 This is the external folder that contains the whole project:
 
 1) temp folder:
-contains the directory_info.last and directory_info.new files which have the contents of the source folder.
 
-2) dir folder
+-directory_info.last
+-directory_info.new
+
+2) dir folder:
 This is the source folder.
 
-3) malicious folder
+3) malicious folder:
 This is the destination folder
