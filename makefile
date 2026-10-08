@@ -1,8 +1,6 @@
 malicious:
 	mkdir -p malicious
 
-
-
 antivirus: malicious 
 	./antivirusd.sh dir malicious 5
 
