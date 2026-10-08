@@ -1,4 +1,7 @@
 #!/bin/bash
+
+
+#Validation on input variables
 if [ "$#" -ne 3 ]; then  
 echo "Wrong number of parameters (should be 3)"
 exit 1
@@ -19,30 +22,60 @@ echo "destination directory not found."
 exit 1
 fi
 
+#Declaring the variables
 dir=$1
 malicious=$2
 interval=$3
-
-
-while true; do
-
 last="temp/directory_info.last.txt"
 new="temp/directory_info.new.txt"
 
+#loop for checking every interval
+while true; do
+flag=0
+
+#Check if this is the first scan
 if ! [[ -f "$last" ]]; then
 
 ls -l "$dir" > "$last"
-else
+flag=1
 
+#Comapre the two files
+else
 ls -l "$dir" > "$new"
 if cmp -s "$last" "$new"; then
 echo "No changes occurred"
 else
 echo "directory has changed!"
 cp "$new" "$last"
+flag=1
 fi
 fi
 
+#A change occurred or this is the first scan.
+if [ "$flag" -eq 1 ]; then
+
+#scan
+extensions=("exe" "bat" "vbs" "scr" "ps1")
+keywords=("virus" "trojan" "malware" "worm" "ransomware")
+
+
+for file in "$dir"/*; do
+
+for extension in "${extensions[@]}"; do
+if [[ "$file" == *."$extension" ]]; then
+echo "malicious extension found!"
+fi
+done
+
+for keyword in "${keywords[@]}"; do
+if grep -q -i "$keyword" "$file"; then
+echo "malicious keyword found!"
+fi
+done
+
+done
+
+fi
 echo "waiting for another $interval seconds to scan"
 sleep "$interval"
 

@@ -1,2 +1,4 @@
-total 0
--rw-rw-r-- 1 nour_soliman nour_soliman 0 Oct  8 12:35 myfile.txt
+total 4
+-rw-rw-r-- 1 nour_soliman nour_soliman  0 Oct  8 14:18 mal.exe
+-rw-rw-r-- 1 nour_soliman nour_soliman 17 Oct  8 14:25 mal.txt
+-rw-rw-r-- 1 nour_soliman nour_soliman  0 Oct  8 12:35 myfile.txt
