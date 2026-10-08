@@ -22,12 +22,12 @@ dir=$1
 malicious=$2
 
 while true; do
-shopt -s nullglob #if it is not made the array will always have 1 element
+shopt -s nullglob #if it is not made, the array will always have 1 element
 files=("$malicious"/*)
 
 if [ "${#files[@]}" -eq 0 ]; then
 echo " the directory is empty"
-exit 1
+exit 0
 
 else
 PS3="" #this is a default prompt
