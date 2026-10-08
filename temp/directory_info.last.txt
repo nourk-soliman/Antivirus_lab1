@@ -1,0 +1,2 @@
+total 0
+-rw-rw-r-- 1 nour_soliman nour_soliman 0 Oct  8 12:35 myfile.txt
