@@ -60,22 +60,31 @@ keywords=("virus" "trojan" "malware" "worm" "ransomware")
 
 
 for file in "$dir"/*; do
-
+moved=0  #to avoid accessing the file after it has been moved
 for extension in "${extensions[@]}"; do
 if [[ "$file" == *."$extension" ]]; then
-echo "malicious extension found!"
+mv "$file" "$malicious"
+echo "$file is malicious and it is DELETED"
+moved=1
+break
+
 fi
 done
 
+if [ "$moved" -eq 0 ]; then
 for keyword in "${keywords[@]}"; do
 if grep -q -i "$keyword" "$file"; then
-echo "malicious keyword found!"
+mv "$file" "$malicious"
+echo "$file is malicious and it is DELETED"
+break
+fi
+
+done
 fi
 done
 
-done
-
 fi
+ls -l "$dir" > "$last"
 echo "waiting for another $interval seconds to scan"
 sleep "$interval"
 
