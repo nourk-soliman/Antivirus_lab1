@@ -73,7 +73,9 @@ mv "$file" "$malicious"
 echo "$file is malicious and it is DELETED."
 moved=1
 break
-else echo "$file is in the whitelist."
+else 
+echo "$file is in the whitelist."
+break
 fi
 fi
 done
@@ -89,7 +91,9 @@ if ! [ -f "$white_list_file" ]; then
 mv "$file" "$malicious"
 echo "$file is malicious and it is DELETED."
 break
-else echo "$file is in the whitelist."
+else 
+echo "$file is in the whitelist."
+break
 fi
 fi
 
