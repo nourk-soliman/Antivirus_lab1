@@ -1,8 +1,9 @@
 malicious:
 	mkdir -p malicious
-
-antivirus: malicious 
+whitelist:
+	mkdir -p whitelist
+antivirus: malicious whitelist 
 	./antivirusd.sh dir malicious 5
 
-restore: malicious 
+restore: malicious whitelist
 	./restore.sh dir malicious

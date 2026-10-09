@@ -20,6 +20,7 @@ fi
 #Variable declaration
 dir=$1
 malicious=$2
+whitelist="whitelist"
 
 while true; do
 shopt -s nullglob #if it is not made, the array will always have 1 element
@@ -42,11 +43,15 @@ select file in "${files[@]}"; do
     fi
 done
 
+
+
 PS3="Choose what you want to do: "
 options=("Restore the file back into dir." "Permanently delete this file from malicious directory." "Go back."  "Exit.")
 select option in "${options[@]}"; do
     case $option in
         "Restore the file back into dir.")
+           cp "$selected_file" "$whitelist" 
+           echo "Copied to whitelist."
            mv "$selected_file" "$dir"
            echo "Restored $selected_file to $dir"
            break

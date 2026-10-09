@@ -28,6 +28,7 @@ malicious=$2
 interval=$3
 last="temp/directory_info.last.txt"
 new="temp/directory_info.new.txt"
+whitelist="whitelist"
 
 #loop for checking every interval
 while true; do
@@ -63,20 +64,33 @@ for file in "$dir"/*; do
 moved=0  #to avoid accessing the file after it has been moved
 for extension in "${extensions[@]}"; do
 if [[ "$file" == *."$extension" ]]; then
+
+filename=$(basename "$file")
+white_list_file="$whitelist/$filename"
+
+if ! [ -f "$white_list_file" ]; then
 mv "$file" "$malicious"
-echo "$file is malicious and it is DELETED"
+echo "$file is malicious and it is DELETED."
 moved=1
 break
-
+else echo "$file is in the whitelist."
+fi
 fi
 done
 
 if [ "$moved" -eq 0 ]; then
 for keyword in "${keywords[@]}"; do
 if grep -q -i "$keyword" "$file"; then
+
+filename=$(basename "$file") #because file also contains the directory.
+white_list_file="$whitelist/$filename"
+
+if ! [ -f "$white_list_file" ]; then
 mv "$file" "$malicious"
-echo "$file is malicious and it is DELETED"
+echo "$file is malicious and it is DELETED."
 break
+else echo "$file is in the whitelist."
+fi
 fi
 
 done
