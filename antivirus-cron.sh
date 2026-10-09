@@ -1,30 +1,14 @@
 #!/bin/bash
 
-
+echo "Scan occurred at $(date)" #to check if cron job runs every 1min and 23 sec.
 #Validation on input variables
-if [ "$#" -ne 2 ]; then  
-echo "Wrong number of parameters (should be 2)"
-exit 1
-fi
-
-
-if ! [[ -d "$1" ]]; then
-echo "source directory not found."
-exit 1
-fi
-
-if ! [[ -d "$2" ]]; then
-echo "destination directory not found."
-exit 1
-fi
 
 #Declaring the variables
 dir=$1
 malicious=$2
-interval=$3
-last="temp/directory_info.last.txt"
-new="temp/directory_info.new.txt"
-whitelist="whitelist"
+last="/home/nour_soliman/Documents/Antivirus_lab1/temp/directory_info.last.txt"
+new="/home/nour_soliman/Documents/Antivirus_lab1/temp/directory_info.new.txt"
+whitelist="/home/nour_soliman/Documents/Antivirus_lab1/whitelist"
 flag=0
 
 #Check if this is the first scan

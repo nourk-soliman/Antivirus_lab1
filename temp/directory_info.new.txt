@@ -1,4 +1,3 @@
-total 4
--rw-rw-r-- 1 nour_soliman nour_soliman 16 Oct  9 08:36 file.scr.txt
--rw-rw-r-- 1 nour_soliman nour_soliman  0 Oct  9 11:38 file.txt
--rw-rw-r-- 1 nour_soliman nour_soliman  0 Oct  8 14:40 mal.exe
+total 0
+-rw-rw-r-- 1 nour_soliman nour_soliman 0 Oct  9 11:38 file.txt
+-rw-rw-r-- 1 nour_soliman nour_soliman 0 Oct  9 11:50 nk.txt
