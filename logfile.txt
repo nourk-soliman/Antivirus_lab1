@@ -281,3 +281,10 @@ Scan occurred at Sat Oct 10 10:43:24 AM UTC 2026
 No changes occurred
 Scan occurred at Sat Oct 10 10:44:24 AM UTC 2026
 No changes occurred
+Scan occurred at Sat Oct 10 10:45:24 AM UTC 2026
+No changes occurred
+Scan occurred at Sat Oct 10 10:46:24 AM UTC 2026
+directory has changed!
+/home/nour_soliman/Documents/Antivirus_lab1/dir/nkkk.scr is malicious and it is DELETED.
+/home/nour_soliman/Documents/Antivirus_lab1/dir/nour.scr is in the whitelist.
+/home/nour_soliman/Documents/Antivirus_lab1/dir/nour.scr is in the whitelist.

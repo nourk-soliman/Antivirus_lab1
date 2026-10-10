@@ -80,7 +80,10 @@ To run the antivirus scan follow these steps:
 
 4) The antivirus scan will run if the arguments are valid.
 
-5) Its criteria is based on the keywords and extensions found in antivirus.sh file at lines 58 and 59. 
+5) Its criteria is based on the keywords and extensions found in antivirus.sh file at lines 58 and 59:
+
+		extensions=("exe" "bat" "vbs" "scr" "ps1")
+		keywords=("virus" "trojan" "malware" "worm" "ransomware")
 
 6) If the folder is found to be malicious and is not on the whitelist, it will be transferred to the malicious folder.
 

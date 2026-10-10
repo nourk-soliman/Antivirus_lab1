@@ -1,3 +1,4 @@
 total 4
 -rw-rw-r-- 1 nour_soliman nour_soliman  0 Oct  9 11:50 nk.txt
+-rw-rw-r-- 1 nour_soliman nour_soliman  0 Oct 10 10:45 nkkk.scr
 -rw-rw-r-- 1 nour_soliman nour_soliman 17 Oct  9 12:42 nour.scr
