@@ -84,6 +84,7 @@ To run the antivirus scan follow these steps:
 
 6) If the folder is found to be malicious and is not on the whitelist, it will be transferred to the malicious folder.
 
+
 ### Automatic Antivirus scan
 
 By using the cronjob, the scan will run automatically every interval you specify.
@@ -125,6 +126,29 @@ if you want it to run every 3rd Friday of the month at 12:31 am: 31 0 15-21 * * 
 - Go Back to the file list.
 
 - Exit.
+
+#### Whitelist 
+
+- The whitelist is implemented as a folder, when the user chooses to restore a file in the restore tool, it is automatically added to the whitelist through those lines of code:
+
+		select option in "${options[@]}"; do
+			case $option in
+			"Restore the file back into dir.")
+				cp "$selected_file" "$whitelist"
+				echo "Copied to whitelist."
+				mv "$selected_file" "$dir"
+				echo "Restored $selected_file to $dir"
+				break
+				;;
+
+- When the antivirus scans again, it checks if the file is in the whitelist by this code:
+
+                        filename=$(basename "$file") 
+                        #because file also contains the directory.
+						white_list_file="$whitelist/$filename"
+						if ! [ -f "$white_list_file" ]; then 
+                        #if not found in whitelist, then add it to malicious folder
+
 
 
 
